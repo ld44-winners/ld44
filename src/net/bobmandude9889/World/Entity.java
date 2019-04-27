@@ -1,6 +1,6 @@
 package net.bobmandude9889.World;
 
-import java.awt.Image;
+import java.awt.image.BufferedImage;
 
 public interface Entity {
 	
@@ -8,6 +8,8 @@ public interface Entity {
 	public void setLocation(Location location);
 	public Velocity getVelocity();
 	public void setVelocity(Velocity velocity);
-	public Image getImage();
+	public BufferedImage getImage();
+	public Size getSize();
+	public double getRotation();
 	
 }

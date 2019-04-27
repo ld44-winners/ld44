@@ -18,4 +18,12 @@ public class World {
 		this.entityList.add(entity);
 	}
 	
+	public void tickVelocity() {
+		for (Entity e : entityList) {
+			Velocity v = e.getVelocity();
+			if(v != null)
+				e.setLocation(e.getLocation().plus(v.x, v.y));
+		}
+	}
+	
 }

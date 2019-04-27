@@ -4,6 +4,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import net.bobmandude9889.Render.Camera;
+import net.bobmandude9889.Window.Key;
 import net.bobmandude9889.Window.Window;
 
 public class KeyHandler implements KeyListener {
@@ -18,35 +19,20 @@ public class KeyHandler implements KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		switch (e.getKeyCode()) {
-		case 37:
-			camera.location.x -= 0.1;
-			break;
-		case 38:
-			camera.location.y -= 0.1;
-			break;
-		case 39:
-			camera.location.x += 0.1;
-			break;
-		case 40:
-			camera.location.y += 0.1;
-			break;
-		case 45:
-			camera.zoom -= 1;
-			break;
-		case 61:
-			camera.zoom += 1;
-			break;
+		if (!Key.isPressed(e.getKeyCode())){
+			Key.add(e.getKeyCode());
 		}
 		window.display.repaint();
 	}
 
 	@Override
-	public void keyReleased(KeyEvent arg0) {
+	public void keyReleased(KeyEvent e) {
+		if (Key.isPressed(e.getKeyCode()))
+			Key.remove(e.getKeyCode());
 	}
 
 	@Override
-	public void keyTyped(KeyEvent arg0) {
+	public void keyTyped(KeyEvent e) {
 	}
 
 }

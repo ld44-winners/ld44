@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 
 import net.bobmandude9889.Render.Camera;
 
+@SuppressWarnings("serial")
 public class Display extends JPanel implements Runnable, KeyListener {
 
 	private Window window;
